@@ -10,6 +10,7 @@ const userRoutes = require('./routes/user');
 const cors = require('cors');
 
 const cron = require("node-cron");
+const axios = require("axios");
 
 // for Cross Origin Requests
 app.use(cors());
@@ -40,7 +41,10 @@ mongoose.connect(process.env.MONGO_URI)
 
 // TO Prevent Render from sleeping in 15 minutes 
 cron.schedule('*/14 * * * *', async () => {
+    try{
         const run  = await axios.get("https://task-backend-bliy.onrender.com")
+    }catch(err) {
+    } 
 });
       
     
