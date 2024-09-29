@@ -44,7 +44,7 @@ const googleAuth = async (req, res) => {
     try {
         const { tokens } = await client.getToken({
             code,
-            redirect_uri: "https://task-frontend-bwbo.onrender.com"
+            redirect_uri: process.env.REDIRECT_URI
         });
         client.setCredentials(tokens);
         const ticket = await client.verifyIdToken({
