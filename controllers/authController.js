@@ -44,7 +44,7 @@ const googleAuth = async (req, res) => {
     try {
         const { tokens } = await client.getToken({
             code,
-            redirect_uri: "http://localhost:3000"
+            redirect_uri: "https://task-backend-bliy.onrender.com"
         });
         client.setCredentials(tokens);
         const ticket = await client.verifyIdToken({
